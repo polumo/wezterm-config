@@ -26,12 +26,12 @@ local keys = {
    --    mods = 'NONE',
    --    action = act.ShowLauncherArgs({ flags = 'FUZZY|WORKSPACES' }),
    -- },
-   -- { key = 'F11', mods = 'NONE',    action = act.ToggleFullScreen },
+   { key = 'F11', mods = 'NONE',    action = act.ToggleFullScreen },
    -- { key = 'F12', mods = 'NONE',    action = act.ShowDebugOverlay },
-   { key = 'f', mods = mod.SUPER, action = act.Search({ CaseInSensitiveString = '' }) }, -- 搜索
+   { key = 'f', mods = mod.SUPER_REV, action = act.Search({ CaseInSensitiveString = '' }) }, -- 搜索
    {
       key = 'u',
-      mods = mod.SUPER,
+      mods = mod.SUPER_REV,
       action = wezterm.action.QuickSelectArgs({
          label = 'open url',
          patterns = {
@@ -62,18 +62,18 @@ local keys = {
    -- tabs --
    -- tabs: spawn+close
    -- { key = 'Enter',      mods = mod.SUPER,     action = act.SpawnTab('DefaultDomain') },
-   { key = 't', mods = mod.SUPER, action = act.SpawnTab('DefaultDomain') }, -- 打开一个新标签页
+   { key = 't', mods = mod.SUPER,     action = act.SpawnTab('DefaultDomain') }, -- 打开一个新标签页
    -- { key = 'w', mods = mod.SUPER,     action = act.CloseCurrentTab({ confirm = false }) },
 
    -- tabs: navigation
-   { key = 'h', mods = mod.SUPER, action = act.ActivateTabRelative(-1) }, -- 切换上一个标签页
-   { key = 'l', mods = mod.SUPER, action = act.ActivateTabRelative(1) },  -- 切换下一个标签页
+   { key = 'h', mods = mod.SUPER,     action = act.ActivateTabRelative(-1) }, -- 切换上一个标签页
+   { key = 'l', mods = mod.SUPER,     action = act.ActivateTabRelative(1) }, -- 切换下一个标签页
    -- { key = 'h', mods = mod.SUPER_REV, action = act.MoveTabRelative(-1) },
    -- { key = 'l', mods = mod.SUPER_REV, action = act.MoveTabRelative(1) },
 
    -- window --
    -- spawn windows
-   { key = 'n', mods = mod.SUPER, action = act.SpawnWindow }, -- 打开一个新窗口
+   { key = 'n', mods = mod.SUPER,     action = act.SpawnWindow }, -- 打开一个新窗口
 
    -- background controls --
    {
@@ -123,7 +123,7 @@ local keys = {
       key = [[\]],
       mods = mod.SUPER_REV,
       action = act.SplitHorizontal({ domain = 'CurrentPaneDomain' }),
-   }, -- 水平防线打开一个pane
+   }, -- 水平方向打开一个pane
 
    -- panes: zoom+close pane
    { key = 'Enter', mods = mod.SUPER,     action = act.TogglePaneZoomState },                   -- 切换当前pane的大小
