@@ -73,44 +73,44 @@ local keys = {
 
    -- window --
    -- spawn windows
-   { key = 'n', mods = mod.SUPER,     action = act.SpawnWindow }, -- 打开一个新窗口
+   { key = 'n', mods = 'CTRL|SHIFT',     action = act.SpawnWindow }, -- 打开一个新窗口
 
    -- background controls --
    {
       key = [[/]],
-      mods = mod.SUPER,
+      mods = mod.SUPER_REV,
       action = wezterm.action_callback(function(window, _pane)
          backdrops:random(window)
       end),
    }, -- 随机切换一张背景
    {
       key = [[,]],
-      mods = mod.SUPER,
+      mods = mod.SUPER_REV,
       action = wezterm.action_callback(function(window, _pane)
          backdrops:cycle_back(window)
       end),
    }, -- 切换上一张背景
    {
       key = [[.]],
-      mods = mod.SUPER,
+      mods = mod.SUPER_REV,
       action = wezterm.action_callback(function(window, _pane)
          backdrops:cycle_forward(window)
       end),
    }, -- 切换下一张背景
-   {
-      key = [[/]],
-      mods = mod.SUPER_REV,
-      action = act.InputSelector({
-         title = 'Select Background',
-         choices = backdrops:choices(),
-         fuzzy = true,
-         fuzzy_description = 'Select Background: ',
-         action = wezterm.action_callback(function(window, _pane, idx)
-            ---@diagnostic disable-next-line: param-type-mismatch
-            backdrops:set_img(window, tonumber(idx))
-         end),
-      }),
-   }, -- 选择背景图片
+   -- {
+   --    key = [[/]],
+   --    mods = mod.SUPER_REV,
+   --    action = act.InputSelector({
+   --       title = 'Select Background',
+   --       choices = backdrops:choices(),
+   --       fuzzy = true,
+   --       fuzzy_description = 'Select Background: ',
+   --       action = wezterm.action_callback(function(window, _pane, idx)
+   --          ---@diagnostic disable-next-line: param-type-mismatch
+   --          backdrops:set_img(window, tonumber(idx))
+   --       end),
+   --    }),
+   -- }, -- 选择背景图片
 
    -- panes --
    -- panes: split panes
